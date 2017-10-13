@@ -1,0 +1,4 @@
+baseURL = "https://mtbkapp.github.io"
+languageCode = "en-us"
+title = "mtbkapp"
+theme = "pickles"
