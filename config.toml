@@ -2,3 +2,13 @@ baseURL = "https://mtbkapp.github.io/"
 languageCode = "en-us"
 title = "mtbkapp"
 theme = "pickles"
+
+[params]
+  twitter = "mtbkapp"
+  github = "mtbkapp"
+  linkedin = "jason-kapp-06b1b745"
+
+  subtitle = "it's my a blog"
+
+
+# more params at https://github.com/mismith0227/hugo_theme_pickles/blob/master/exampleSite/config.toml
