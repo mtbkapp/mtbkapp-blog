@@ -398,12 +398,8 @@ Looks fantastic! Now I'm going to run a program!
 ## Summary
 I used Clojure Spec to build a grammar for toy language. Then I wrote a macro
 that took the conformed value of a program and compiled it into Clojure code.
-I embedded this compiler into a macro.
+I embedded this compiler into the macro.
 
 While this language and program isn't very useful by itself I think its a decent
 pattern for building complicated DSLs in Clojure. Of course all the trade offs
-with making a DSL apply. I'd think hard about doing it but if this was a good
-solution to the problem I was solving then this seems like a good pattern. 
-
-In general I think Spec is a great tool for describing and conforming inputs
-to macros.
+with making a DSL apply. 
