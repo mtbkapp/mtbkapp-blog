@@ -134,7 +134,7 @@ user=> [[50]]]
 {{</highlight>}}
 
 ## Summary
-This all. Just three Datomic Datalog queries for working with rollup aggregations
+Just three Datomic Datalog queries for working with rollup aggregations
 in a tree structure.  I'm not sure if any of these queries are performant.
 
 
