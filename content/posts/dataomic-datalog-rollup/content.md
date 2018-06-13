@@ -4,9 +4,8 @@ date: 2018-05-17T10:19:50-06:00
 draft: false 
 ---
 
-For some reason recursion is either easy or difficult for me, rarely in between. 
 Recently I've been looking at different ways to calculate roll-up aggregations
-in a tree of data. These calculations can be done with recursive algorithm. Here 
+in a tree of data. These calculations can be done with recursive algorithms. Here 
 I show an example in Datomic.
 
 
