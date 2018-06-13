@@ -6,8 +6,8 @@ draft: false
 
 For some reason recursion is either easy or difficult for me, rarely in between. 
 Recently I've been looking at different ways to calculate roll-up aggregations
-in a tree of data. These calculations can be done recursive algorithms. Here I 
-show an example in Datomic.
+in a tree of data. These calculations can be done with recursive algorithm. Here 
+I show an example in Datomic.
 
 
 The datomic schema. Just three attributes: `:o/name`, `:o/parent`, and `:o/x` 
