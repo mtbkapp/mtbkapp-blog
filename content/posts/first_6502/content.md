@@ -2,6 +2,7 @@
 title: "A bit of 6502 Assembly"
 date: 2018-08-23T14:19:31-04:00
 draft: false 
+tags: ["NES"]
 ---
 
 
