@@ -53,3 +53,8 @@ figure that out. Already tried increasing the CPU count for it from 1 to 2. I
 wonder if there is some other VM or emulator settings that can help...
 
 20 min / day... not enough.
+
+
+[Nerdy Nights Week 2](http://nintendoage.com/forum/messageview.cfm?catid=22&threadid=4291)
+
+[Nerdy Nights Week 3](http://nintendoage.com/forum/messageview.cfm?catid=22&threadid=4440)
