@@ -25,4 +25,4 @@ only runs on Windows as far as I can tell, thus Wine was also installed.
 
 This took over 20 miniutes to setup but most of that was downloading Ubuntu Mate
 and installing it--so mostly waiting. The rest was pretty easy to install. Next
-I'm going to start the (Nerdy Nights Tutorials)[http://nintendoage.com/auth/forum/messageview.cfm?catid=22&threadid=7155].
+I'm going to start the [Nerdy Nights Tutorials](http://nintendoage.com/auth/forum/messageview.cfm?catid=22&threadid=7155).
