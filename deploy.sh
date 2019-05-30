@@ -12,7 +12,7 @@ git config user.email "mtbkapp@gmail.com"
 git config user.name "Jason Kapp"
 git commit -m "rebuilding site `date`"
 
-git push origin master
+git push origin HEAD:master
 
 cd ..
 
