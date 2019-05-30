@@ -40,6 +40,19 @@ done and that value is the result of the parse. Like so:
 I got the idea from wanting to read bencoded data from a Java `InputStream` one
 byte at a time and having parser where I could just feed it one byte at a time.
 
+A sequence of characters can be parsed simply by continuing to feed characters
+to the latest parser function until a parser function returns a value. That
+value is the result of the parse.
+{{<highlight clojure>}}
+(defn parse-seq
+  [xss]
+  (loop [f (new-parser) [x & xs] xss]
+    (if (and (fn? f) (some? x))
+      (recur (f x) xs)
+      f)))
+{{</highlight>}}
+
+
 
 ### Constructor
 Here is the constructor that returns a function ready to accept the first byte.
@@ -79,8 +92,8 @@ string and turns it into the Java long that it represents.
 
 ### String Parser
 As mentioned earlier strings are formatted by first the ascii representation of
-a integer indicating the number of bytes in the string then a ':' then that
-indicated number of bytes. I broke parsing the length and the string into 
+a integer indicating the number of bytes in the string then a ':' followed by
+the bytes in the string. I broke parsing the length and the string into 
 separate parsers. First the string parser delegates to the string length parser.
 
 {{<highlight clojure>}}
@@ -117,5 +130,49 @@ indicated number of characters have been consumed.
 
 ### List Parser
 
+A list parser has to keep track of the parse of each element in the list by
+keeping a reference it's the parser, but only one element at a time.  It must 
+detect when the parse is finished and keep the result in an accumulator. This is 
+done by keeping the parser of the current element in a closure along with the
+list's accumulator.
+
+{{<highlight clojure>}}
+(defn list-parser
+  ([]
+   (fn [c]
+     (if (= c \e)
+       []
+       (list-parser [] ((new-parser) c)))))
+  ([acc parser]
+   (fn [c]
+     (if (fn? parser)
+       (list-parser acc (parser c))
+       (let [next-acc (conj acc parser)]
+         (if (= c \e)
+           next-acc
+           (list-parser next-acc ((new-parser) c))))))))
+{{</highlight>}}
 
 ### Dict Parser
+Because dictionaries are encoded the same as lists except for the first byte 
+a dict parser can delegate to a list parser. When the end of the list is found
+the dict parser simply converts the list into a map.
+
+
+{{<highlight clojure>}}
+(defn dict-parser
+  ([] (dict-parser (list-parser)))
+  ([parser]
+   (fn [c]
+     (let [ls (parser c)]
+       (if (fn? ls)
+         (dict-parser ls)
+         (into {} (map vec) (partition 2 ls)))))))
+{{</highlight>}}
+
+
+### bencode
+bencode only has these four types of values. bencode is used by BitTorrent for 
+it's meta data files and in Clojure's nREPL protocol. I'm more interested in 
+the later. I'm not sure why that encoding is used though. 
+
